@@ -35,6 +35,7 @@ Create a function `filterProducts` that accepts:
 - an array of products
 - a callback function
 
+
 The callback should determine which products to include.
 Example: filter by availability or price threshold.
 
@@ -43,7 +44,10 @@ Step-by-Step:
 2. Use the `filter()` method to apply the callback to the array.
 3. Return the filtered result.
 */
-
+const filterProducts = (productArray, callback) => {
+  return productArray.filter(callback)
+}
+console.log (filterProducts (products, prod => prod.inStock )); 
 
 /*
 🔹 Task 2: Transform Product Names
@@ -88,7 +92,7 @@ Step-by-Step:
 // 🧪 Console Test Your Work
 // ============================================
 
-// console.log("Filtered products:", ...);
+//console.log("Filtered products:", ...);
 // console.log("Uppercased names:", ...);
 // console.log("Discounted products:", ...);
 // console.log("Total value in stock:", ...);
