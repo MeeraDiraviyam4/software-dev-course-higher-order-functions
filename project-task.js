@@ -59,7 +59,8 @@ Step-by-Step:
 2. Extract and transform the `name` property to uppercase.
 3. Store the result in a new variable.
 */
-
+const uppercasedNames = products.map(prod => prod.name.toUpperCase());
+console.log("Uppercased names:", uppercasedNames);
 
 /*
 🔹 Task 3: Generate Discounted Prices
@@ -74,7 +75,16 @@ Step-by-Step:
 3. Use this returned function inside a `forEach()` call to add a new property, `salePrice`, to each product object.
 4. Print the array of products to verify the new property and value have been added to each product object.
 */
+const applyDiscount = (discountPercent) => {
+  return (product) => {
+    const salePrice = product.price * (1 - discountPercent / 100);
+    return { ...product, salePrice };
+  };
+};
 
+// Apply a 20% discount to all products
+const discountedProducts = products.map(applyDiscount(20));
+console.log("Discounted products:", discountedProducts);
 
 /*
 🔹 Task 4: Calculate Total Inventory Value
@@ -86,6 +96,11 @@ Step-by-Step:
 2. Add only the prices of products where `inStock` is true.
 3. Store the total in a new variable.
 */
+const totalInventoryValue = products
+  .filter(prod => prod.inStock)
+  .reduce((sum, prod) => sum + prod.price, 0);
+
+console.log("Total value in stock:", totalInventoryValue);
 
 
 // ============================================
